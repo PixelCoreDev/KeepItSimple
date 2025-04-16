@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsybv2vfk7u3v"]
+
+[ext_resource type="Texture2D" uid="uid://b50070xno5hp0" path="res://Graphics/MainScreen/ToDoPanel.png" id="1_4yuqe"]
+[ext_resource type="Script" uid="uid://d2fe8kx0kmelg" path="res://Scripts/ToDo.gd" id="1_yjwpl"]
+[ext_resource type="Texture2D" uid="uid://xl6cafu55ab6" path="res://Graphics/MainScreen/CheckBox_Empty_Normal.png" id="2_yjwpl"]
+[ext_resource type="Texture2D" uid="uid://cp4wls5rhsilx" path="res://Graphics/MainScreen/DeleteButton_Normal.png" id="3_u8v8b"]
+[ext_resource type="Script" uid="uid://b2e12r26j43n0" path="res://Scripts/Button.gd" id="4_i0jol"]
+[ext_resource type="Texture2D" uid="uid://b5s2qnd5urlhs" path="res://Graphics/MainScreen/DeleteButton_Hover.png" id="5_y2ufq"]
+
+[sub_resource type="SystemFont" id="SystemFont_iacmt"]
+font_names = PackedStringArray("0xProto Nerd Font")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mai8y"]
+line_spacing = 18.0
+font = SubResource("SystemFont_iacmt")
+font_size = 80
+font_color = Color(0.988235, 1, 0.752941, 1)
+
+[node name="ToDo" type="HBoxContainer" node_paths=PackedStringArray("textLabel", "stateIcon")]
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 1
+alignment = 1
+script = ExtResource("1_yjwpl")
+textLabel = NodePath("Panel/Label")
+stateIcon = NodePath("Panel/StateIcon")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_4yuqe")
+
+[node name="StateIcon" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("2_yjwpl")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = 845.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "AAAAAAAAAAAAAAAAAA"
+label_settings = SubResource("LabelSettings_mai8y")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DeleteButton" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_u8v8b")
+script = ExtResource("4_i0jol")
+tNormal = ExtResource("3_u8v8b")
+tHover = ExtResource("5_y2ufq")
+
+[connection signal="pressed" from="DeleteButton" to="." method="delete"]

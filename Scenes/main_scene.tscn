@@ -1,0 +1,387 @@
+[gd_scene load_steps=26 format=3 uid="uid://bsyh88fi1ojgh"]
+
+[ext_resource type="Texture2D" uid="uid://ddk5pv5l5k8um" path="res://Graphics/MainScreen/Title.png" id="1_iacmt"]
+[ext_resource type="Texture2D" uid="uid://bgqpsdiyrcqm5" path="res://Graphics/MainScreen/AddButton_Normal.png" id="2_6ev3c"]
+[ext_resource type="Script" uid="uid://bppbjxp77gibi" path="res://Scripts/AddTask.gd" id="2_mai8y"]
+[ext_resource type="Script" uid="uid://b2e12r26j43n0" path="res://Scripts/Button.gd" id="3_6ev3c"]
+[ext_resource type="Texture2D" uid="uid://d1hu37m2akdfn" path="res://Graphics/MainScreen/AddButton_Hover.png" id="4_maf8m"]
+[ext_resource type="Script" uid="uid://mvkttbdbitqb" path="res://Scripts/ToDoList.gd" id="6_drdnd"]
+[ext_resource type="PackedScene" uid="uid://bsybv2vfk7u3v" path="res://Scenes/to_do.tscn" id="7_ioaeq"]
+[ext_resource type="Texture2D" uid="uid://b36dd0athfcp" path="res://Graphics/AddMenu/Panel.png" id="9_m1efj"]
+[ext_resource type="Texture2D" uid="uid://f428jtnkt233" path="res://Graphics/AddMenu/Title.png" id="11_ioaeq"]
+[ext_resource type="Texture2D" uid="uid://bdkynamdcf67t" path="res://Graphics/AddMenu/WritingPanel.png" id="12_7ewk0"]
+[ext_resource type="Texture2D" uid="uid://cj47orutbo73p" path="res://Graphics/AddMenu/AddButton_Normal.png" id="13_lhp3t"]
+[ext_resource type="Texture2D" uid="uid://b0xslnxwavxuj" path="res://Graphics/AddMenu/AddButton_Hover.png" id="14_7ewk0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ia5b"]
+bg_color = Color(0.184314, 0.0784314, 0.184314, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_lhp3t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnsmo"]
+font = SubResource("SystemFont_lhp3t")
+font_size = 40
+font_color = Color(0.988235, 1, 0.752941, 0.584314)
+outline_color = Color(0.988235, 1, 0.752941, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_7ewk0"]
+font_names = PackedStringArray("0xProto Nerd Font")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhp3t"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnsmo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psl12"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ewk0"]
+font = SubResource("SystemFont_lhp3t")
+font_size = 40
+font_color = Color(0.776471, 0.313726, 0.352941, 1)
+outline_color = Color(0.988235, 1, 0.752941, 1)
+
+[sub_resource type="Animation" id="Animation_drdnd"]
+resource_name = "AddTask"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-151, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AddMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(325, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mai8y"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AddMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_76v2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AddMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ioaeq"]
+resource_name = "TaskAdded"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-151, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AddMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(325, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ewk0"]
+_data = {
+&"AddTask": SubResource("Animation_drdnd"),
+&"Idle": SubResource("Animation_mai8y"),
+&"RESET": SubResource("Animation_76v2p"),
+&"TaskAdded": SubResource("Animation_ioaeq")
+}
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ia5b")
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 28.0
+offset_right = -160.0
+offset_bottom = 44.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+mouse_filter = 2
+texture = ExtResource("1_iacmt")
+
+[node name="AddButton" type="HBoxContainer" parent="Main" node_paths=PackedStringArray("anim", "textEdit", "error", "characters", "todoList")]
+layout_mode = 2
+offset_left = 244.0
+offset_top = 118.0
+offset_right = 376.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+script = ExtResource("2_mai8y")
+anim = NodePath("../../AnimationPlayer")
+textEdit = NodePath("../../AddMenu/Panel/TextPanel/TextEdit")
+error = NodePath("../../AddMenu/Panel/TextPanel/Error")
+characters = NodePath("../../AddMenu/Panel/TextPanel/Characters")
+todoList = NodePath("../ToDos")
+
+[node name="AddButton" type="TextureRect" parent="Main/AddButton"]
+layout_mode = 2
+texture = ExtResource("2_6ev3c")
+script = ExtResource("3_6ev3c")
+tNormal = ExtResource("2_6ev3c")
+tHover = ExtResource("4_maf8m")
+
+[node name="ToDos" type="ScrollContainer" parent="Main" node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 244.0
+offset_top = 200.0
+offset_right = -573.0
+offset_bottom = -282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+script = ExtResource("6_drdnd")
+parent = NodePath("VBox")
+toDoScene = ExtResource("7_ioaeq")
+
+[node name="VBox" type="VBoxContainer" parent="Main/ToDos"]
+layout_mode = 2
+
+[node name="AddMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 325.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="TextureRect" parent="AddMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -221.0
+offset_right = -230.0
+offset_bottom = -109.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = ExtResource("9_m1efj")
+
+[node name="Title" type="TextureRect" parent="AddMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 16.0
+grow_horizontal = 2
+texture = ExtResource("11_ioaeq")
+
+[node name="TextPanel" type="TextureRect" parent="AddMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -31.25
+offset_right = 24.0
+offset_bottom = 16.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_7ewk0")
+
+[node name="Characters" type="Label" parent="AddMenu/Panel/TextPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 230.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.776471, 0.313726, 0.352941, 1)
+text = "0"
+label_settings = SubResource("LabelSettings_gnsmo")
+horizontal_alignment = 2
+
+[node name="TextEdit" type="TextEdit" parent="AddMenu/Panel/TextPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 442.0
+offset_bottom = 444.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_placeholder_color = Color(0.988235, 1, 0.752941, 0.501961)
+theme_override_colors/font_color = Color(0.988235, 1, 0.752941, 1)
+theme_override_fonts/font = SubResource("SystemFont_7ewk0")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhp3t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_gnsmo")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_psl12")
+placeholder_text = "
+	 Keep 
+	  it 
+	Simple!"
+wrap_mode = 1
+
+[node name="Error" type="Label" parent="AddMenu/Panel/TextPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = 1.0
+offset_right = 461.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.776471, 0.313726, 0.352941, 1)
+text = "Keep it simple!
+ (max 18 characters)"
+label_settings = SubResource("LabelSettings_7ewk0")
+horizontal_alignment = 1
+
+[node name="AddButton" type="TextureRect" parent="AddMenu/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -23.25
+offset_right = 24.0
+offset_bottom = -7.25
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("13_lhp3t")
+script = ExtResource("3_6ev3c")
+tNormal = ExtResource("13_lhp3t")
+tHover = ExtResource("14_7ewk0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7ewk0")
+}
+autoplay = "Idle"
+
+[connection signal="pressed" from="Main/AddButton/AddButton" to="Main/AddButton" method="addTask"]
+[connection signal="text_changed" from="AddMenu/Panel/TextPanel/TextEdit" to="Main/AddButton" method="textEdited"]
+[connection signal="pressed" from="AddMenu/Panel/AddButton" to="Main/AddButton" method="taskAdded"]
