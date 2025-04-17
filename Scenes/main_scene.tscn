@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bsyh88fi1ojgh"]
+[gd_scene load_steps=32 format=3 uid="uid://bsyh88fi1ojgh"]
 
 [ext_resource type="Texture2D" uid="uid://ddk5pv5l5k8um" path="res://Graphics/MainScreen/Title.png" id="1_iacmt"]
 [ext_resource type="Texture2D" uid="uid://bgqpsdiyrcqm5" path="res://Graphics/MainScreen/AddButton_Normal.png" id="2_6ev3c"]
@@ -15,6 +15,23 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ia5b"]
 bg_color = Color(0.184314, 0.0784314, 0.184314, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drdnd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioaeq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ewk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lhp3t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnsmo"]
+
+[sub_resource type="Theme" id="Theme_drdnd"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_drdnd")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ioaeq")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_7ewk0")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_lhp3t")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_gnsmo")
 
 [sub_resource type="SystemFont" id="SystemFont_lhp3t"]
 
@@ -187,6 +204,41 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="ToDos" type="ScrollContainer" parent="Main" node_paths=PackedStringArray("parent")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -513.0
+offset_right = -256.0
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme = SubResource("Theme_drdnd")
+script = ExtResource("6_drdnd")
+parent = NodePath("VBox")
+toDoScene = ExtResource("7_ioaeq")
+
+[node name="VBox" type="VBoxContainer" parent="Main/ToDos"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="Main/ToDos/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="BG2" type="Panel" parent="Main"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 203.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ia5b")
+
 [node name="Title" type="TextureRect" parent="Main"]
 layout_mode = 1
 anchors_preset = 5
@@ -202,13 +254,15 @@ mouse_filter = 2
 texture = ExtResource("1_iacmt")
 
 [node name="AddButton" type="HBoxContainer" parent="Main" node_paths=PackedStringArray("anim", "textEdit", "error", "characters", "todoList")]
-layout_mode = 2
-offset_left = 244.0
-offset_top = 118.0
-offset_right = 376.0
-offset_bottom = 134.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -267.0
+offset_top = 111.0
+offset_right = -135.0
+offset_bottom = 127.0
 grow_horizontal = 2
-grow_vertical = 2
 scale = Vector2(4, 4)
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -227,37 +281,13 @@ script = ExtResource("3_6ev3c")
 tNormal = ExtResource("2_6ev3c")
 tHover = ExtResource("4_maf8m")
 
-[node name="ToDos" type="ScrollContainer" parent="Main" node_paths=PackedStringArray("parent")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -49.0
-offset_top = 151.0
-offset_right = -793.0
-offset_bottom = -319.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-vertical_scroll_mode = 0
-script = ExtResource("6_drdnd")
-parent = NodePath("VBox")
-toDoScene = ExtResource("7_ioaeq")
-
-[node name="VBox" type="VBoxContainer" parent="Main/ToDos"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Spacer" type="Control" parent="Main/ToDos/VBox"]
-custom_minimum_size = Vector2(0, 17.875)
-layout_mode = 2
-
 [node name="AddMenu" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 325.0
+offset_right = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

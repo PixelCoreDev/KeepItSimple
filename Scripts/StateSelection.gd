@@ -72,10 +72,17 @@ func showSelection():
 		selection3.tNormal = failed
 		selection3.tHover = failedHover
 	
+	selection1.visible = true
+	selection2.visible = true
+	selection3.visible = true
+	
 	showing = true
 	anim.play("ShowSelection")
 
 func hideSelection():
+	selection1.visible = false
+	selection2.visible = false
+	selection3.visible = false
 	showing = false
 	anim.play("HideSelection")
 

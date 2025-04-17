@@ -25,6 +25,46 @@ font = SubResource("SystemFont_iacmt")
 font_size = 80
 font_color = Color(0.988235, 1, 0.752941, 1)
 
+[sub_resource type="Animation" id="Animation_0dhj7"]
+resource_name = "HideSelection"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/StateSelection_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-16, -16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/StateSelection_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/StateSelection_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(16, -16), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_pwumx"]
 resource_name = "Idle"
 tracks/0/type = "value"
@@ -143,46 +183,6 @@ tracks/2/keys = {
 "values": [Vector2(0, 0), Vector2(16, -16)]
 }
 
-[sub_resource type="Animation" id="Animation_0dhj7"]
-resource_name = "HideSelection"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/StateSelection_1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(-16, -16), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/StateSelection_2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(0, -18), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/StateSelection_3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.5, 0.5),
-"update": 0,
-"values": [Vector2(16, -16), Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_04ki8"]
 _data = {
 &"HideSelection": SubResource("Animation_0dhj7"),
@@ -228,6 +228,8 @@ failed = ExtResource("4_0garw")
 failedHover = ExtResource("8_wv5ab")
 
 [node name="StateSelection_1" type="TextureRect" parent="Panel"]
+visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -243,6 +245,8 @@ tNormal = ExtResource("3_dcgul")
 tHover = ExtResource("6_pwumx")
 
 [node name="StateSelection_2" type="TextureRect" parent="Panel"]
+visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -258,6 +262,8 @@ tNormal = ExtResource("4_0garw")
 tHover = ExtResource("8_wv5ab")
 
 [node name="StateSelection_3" type="TextureRect" parent="Panel"]
+visible = false
+z_index = 2
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
