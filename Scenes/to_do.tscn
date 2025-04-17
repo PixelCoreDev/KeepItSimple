@@ -1,11 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsybv2vfk7u3v"]
+[gd_scene load_steps=22 format=3 uid="uid://bsybv2vfk7u3v"]
 
 [ext_resource type="Texture2D" uid="uid://b50070xno5hp0" path="res://Graphics/MainScreen/ToDoPanel.png" id="1_4yuqe"]
 [ext_resource type="Script" uid="uid://d2fe8kx0kmelg" path="res://Scripts/ToDo.gd" id="1_yjwpl"]
 [ext_resource type="Texture2D" uid="uid://xl6cafu55ab6" path="res://Graphics/MainScreen/CheckBox_Empty_Normal.png" id="2_yjwpl"]
+[ext_resource type="Script" uid="uid://crje352620hkq" path="res://Scripts/StateSelection.gd" id="3_0garw"]
+[ext_resource type="Texture2D" uid="uid://b31lxtha85ud3" path="res://Graphics/MainScreen/CheckBox_Checked_Normal.png" id="3_dcgul"]
 [ext_resource type="Texture2D" uid="uid://cp4wls5rhsilx" path="res://Graphics/MainScreen/DeleteButton_Normal.png" id="3_u8v8b"]
+[ext_resource type="Texture2D" uid="uid://dlychyt1hpyfk" path="res://Graphics/MainScreen/CheckBox_Failed_Normal.png" id="4_0garw"]
 [ext_resource type="Script" uid="uid://b2e12r26j43n0" path="res://Scripts/Button.gd" id="4_i0jol"]
+[ext_resource type="Texture2D" uid="uid://ba72nh7b5ih7a" path="res://Graphics/MainScreen/CheckBox_Working_Normal.png" id="5_74s1h"]
 [ext_resource type="Texture2D" uid="uid://b5s2qnd5urlhs" path="res://Graphics/MainScreen/DeleteButton_Hover.png" id="5_y2ufq"]
+[ext_resource type="Texture2D" uid="uid://daa0nrdnk2xns" path="res://Graphics/MainScreen/CheckBox_Checked_Hover.png" id="6_pwumx"]
+[ext_resource type="Texture2D" uid="uid://b1g810wxgmj5k" path="res://Graphics/MainScreen/CheckBox_Empty_Hover.png" id="8_s5dh0"]
+[ext_resource type="Texture2D" uid="uid://b2ebosl3d47sx" path="res://Graphics/MainScreen/CheckBox_Failed_Hover.png" id="8_wv5ab"]
+[ext_resource type="Texture2D" uid="uid://doqmqq0i14hs5" path="res://Graphics/MainScreen/CheckBox_Working_Hover.png" id="10_81pdt"]
 
 [sub_resource type="SystemFont" id="SystemFont_iacmt"]
 font_names = PackedStringArray("0xProto Nerd Font")
@@ -17,6 +25,172 @@ font = SubResource("SystemFont_iacmt")
 font_size = 80
 font_color = Color(0.988235, 1, 0.752941, 1)
 
+[sub_resource type="Animation" id="Animation_pwumx"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/StateSelection_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/StateSelection_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/StateSelection_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wv5ab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/StateSelection_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/StateSelection_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/StateSelection_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_81pdt"]
+resource_name = "ShowSelection"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/StateSelection_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-16, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/StateSelection_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/StateSelection_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_0dhj7"]
+resource_name = "HideSelection"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/StateSelection_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-16, -16), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/StateSelection_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/StateSelection_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(16, -16), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04ki8"]
+_data = {
+&"HideSelection": SubResource("Animation_0dhj7"),
+&"Idle": SubResource("Animation_pwumx"),
+&"RESET": SubResource("Animation_wv5ab"),
+&"ShowSelection": SubResource("Animation_81pdt")
+}
+
 [node name="ToDo" type="HBoxContainer" node_paths=PackedStringArray("textLabel", "stateIcon")]
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -25,11 +199,78 @@ alignment = 1
 script = ExtResource("1_yjwpl")
 textLabel = NodePath("Panel/Label")
 stateIcon = NodePath("Panel/StateIcon")
+idle = ExtResource("2_yjwpl")
+idleHover = ExtResource("8_s5dh0")
+finished = ExtResource("3_dcgul")
+finishedHover = ExtResource("6_pwumx")
+working = ExtResource("5_74s1h")
+workingHover = ExtResource("10_81pdt")
+failed = ExtResource("4_0garw")
+failedHover = ExtResource("8_wv5ab")
 
-[node name="Panel" type="TextureRect" parent="."]
+[node name="Panel" type="TextureRect" parent="." node_paths=PackedStringArray("anim", "toDo", "selection1", "selection2", "selection3")]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("1_4yuqe")
+script = ExtResource("3_0garw")
+anim = NodePath("../AnimationPlayer")
+toDo = NodePath("..")
+selection1 = NodePath("StateSelection_1")
+selection2 = NodePath("StateSelection_2")
+selection3 = NodePath("StateSelection_3")
+idle = ExtResource("2_yjwpl")
+idleHover = ExtResource("8_s5dh0")
+finished = ExtResource("3_dcgul")
+finishedHover = ExtResource("6_pwumx")
+working = ExtResource("5_74s1h")
+workingHover = ExtResource("10_81pdt")
+failed = ExtResource("4_0garw")
+failedHover = ExtResource("8_wv5ab")
+
+[node name="StateSelection_1" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("3_dcgul")
+script = ExtResource("4_i0jol")
+tNormal = ExtResource("3_dcgul")
+tHover = ExtResource("6_pwumx")
+
+[node name="StateSelection_2" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("4_0garw")
+script = ExtResource("4_i0jol")
+tNormal = ExtResource("4_0garw")
+tHover = ExtResource("8_wv5ab")
+
+[node name="StateSelection_3" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("5_74s1h")
+script = ExtResource("4_i0jol")
+tNormal = ExtResource("5_74s1h")
+tHover = ExtResource("10_81pdt")
 
 [node name="StateIcon" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -42,6 +283,9 @@ offset_bottom = 8.0
 grow_vertical = 2
 pivot_offset = Vector2(8, 8)
 texture = ExtResource("2_yjwpl")
+script = ExtResource("4_i0jol")
+tNormal = ExtResource("2_yjwpl")
+tHover = ExtResource("8_s5dh0")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -67,4 +311,14 @@ script = ExtResource("4_i0jol")
 tNormal = ExtResource("3_u8v8b")
 tHover = ExtResource("5_y2ufq")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_04ki8")
+}
+autoplay = "Idle"
+
+[connection signal="released" from="Panel/StateSelection_1" to="Panel" method="setState" binds= [1]]
+[connection signal="released" from="Panel/StateSelection_2" to="Panel" method="setState" binds= [2]]
+[connection signal="released" from="Panel/StateSelection_3" to="Panel" method="setState" binds= [3]]
+[connection signal="pressed" from="Panel/StateIcon" to="Panel" method="showSelection"]
 [connection signal="pressed" from="DeleteButton" to="." method="delete"]

@@ -13,6 +13,8 @@ config_version=5
 config/name="KeepItSimple"
 run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://bqceksr41d6mp"
+config/windows_native_icon="res://Graphics/Icon/icon.ico"
 
 [display]
 

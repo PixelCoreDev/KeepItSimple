@@ -7,6 +7,7 @@ var hover : bool = false
 @export var tHover : Texture
 
 signal pressed
+signal released
 
 func _ready() -> void:
 	mouse_entered.connect(onHover)
@@ -21,5 +22,8 @@ func onHoverEnd():
 	hover = false
 
 func _process(delta: float) -> void:
-	if hover and (Input.is_action_just_pressed("LeftClick") or Input.is_action_just_pressed("RightClick")):
-		pressed.emit()
+	if hover:
+		if Input.is_action_just_pressed("LeftClick") or Input.is_action_just_pressed("RightClick"):
+			pressed.emit()
+		elif Input.is_action_just_released("LeftClick") or Input.is_action_just_released("RightClick"):
+			released.emit()
